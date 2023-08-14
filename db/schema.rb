@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_080147) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_14_081726) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apparels", force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.string "category"
+    t.float "price"
+    t.text "overview"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_apparels_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.string "status", default: "pending"
+    t.bigint "user_id", null: false
+    t.bigint "apparel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apparel_id"], name: "index_rentals_on_apparel_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.float "rating"
+    t.bigint "rental_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rental_id"], name: "index_reviews_on_rental_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -28,4 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_080147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "apparels", "users"
+  add_foreign_key "rentals", "apparels"
+  add_foreign_key "rentals", "users"
+  add_foreign_key "reviews", "rentals"
+  add_foreign_key "reviews", "users"
 end
