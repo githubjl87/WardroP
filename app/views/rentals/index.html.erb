@@ -1,14 +1,11 @@
-
-<H1>Your Rentals</H1>
-
 <div class="container">
-
- <% @rentals.each do |rental| %>
+  <H1>Your Rentals</H1>
+  <% @rentals.each do |rental| %>
     <p><%= link_to rental.apparel.name, apparel_path(rental.apparel) %></p>
     <p><%= rental.apparel.size %></p>
-<p><%= rental.apparel.category %></p>
-<p><%= rental.apparel.overview %></p>
+    <p><%= rental.apparel.category %></p>
+    <p><%= rental.apparel.overview %></p>
     <p><%= rental.start_date %></p>
     <p><%= rental.end_date %></p>
- <% end %>
-  </div>
+  <% end %>
+</div>

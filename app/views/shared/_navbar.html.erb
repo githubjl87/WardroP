@@ -13,7 +13,7 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Rentals", rentals_path, class: "nav-link" %>
+            <%= link_to "Wardrobe", rentals_path, class: "nav-link" %>
           </li>
           <%= simple_form_for :search, url: root_path, method: :get do |f| %>
             <div class="search-form-control form-group">
@@ -28,7 +28,10 @@
               <%= image_tag "https://pluspng.com/img-png/user-png-icon-young-user-icon-2400.png", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "View My Rentals", rentals_path, class: "dropdown-item" %>
+              <%= link_to "Messages",  "#", class: "dropdown-item" %>
+              <%= link_to "Wishlists", "#", class: "dropdown-item" %>
+              <%= link_to "Edit My Profile", "#", class: "dropdown-item" %>
+              <%= link_to "My Account", "#", class: "dropdown-item" %>
               <%= link_to "Create New Listing", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
