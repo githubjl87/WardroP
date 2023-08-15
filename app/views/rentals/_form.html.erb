@@ -1,0 +1,8 @@
+<div class=“container”>
+  <h1>Please confirm your order details:</h1>
+  <%= simple_form_for [@apparel, @rental]  do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+  </div>

@@ -10,10 +10,11 @@ class RentalsController < ApplicationController
     @apparel = Apparel.find(params[:apparel_id])
     @rental = Rental.new(rental_params)
     @rental.apparel = @apparel
+    @rental.user = current_user
     if @rental.save
-      redirect_to apparel_path(@apparel)
+      redirect_to rentals_path
     else
-      render :new, status: :unprocessable_entity
+      render "apparels/show", status: :unprocessable_entity
     end
   end
 
@@ -39,6 +40,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    param.require(:rental).permit(:start_date, :end_date, :status)
+    params.require(:rental).permit(:start_date, :end_date, :status)
   end
 end
