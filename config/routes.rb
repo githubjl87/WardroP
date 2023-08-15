@@ -4,7 +4,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "apparels#index"
-  resources :apparels, only: [ :index, :new, :show, :create ] do
+  resources :apparels, only: [ :index, :show, :create ] do
     resources :rentals, only: [ :create ]
   end
   resources :rentals, only: [ :index, :edit, :update ]
