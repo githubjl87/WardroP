@@ -1,6 +1,7 @@
 class Apparel < ApplicationRecord
   belongs_to :user
   has_many :rentals
+  has_one_attached :photo
 
   validates :name, presence: true
   validates :size, presence: true, inclusion: { in: %w[XXS XS S M L XL XXL] }

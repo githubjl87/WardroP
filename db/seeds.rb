@@ -12,8 +12,6 @@ User.destroy_all
 Apparel.destroy_all
 Review.destroy_all
 
-
-
 puts "creating DB"
 
 gary = User.new(username: "Gary", address: Faker::Address.full_address, email: "toppiggary@hotmail.com", password: "123456")
@@ -32,14 +30,35 @@ end
 puts "created #{User.count} users"
 
 skirt = Apparel.new(name: "skirt", user_id: gary.id, size: "XL", category: "Business", price: 200, overview: "a nice skirt")
+file = File.open("db/images/skirt1.jpg")
+skirt.photo.attach(io: file, filename: "skirt1.jpg")
 skirt.save!
+
 trousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "XL", category: "Business", price: 200, overview: "a nice trousers")
+file = File.open("db/images/men_trousers1.jpg")
+trousers.photo.attach(io: file, filename: "men_trousers1.jpg")
 trousers.save!
+
 shirt = Apparel.new(name: "shirt", user_id: james.id, size: "XL", category: "Business", price: 200, overview: "a nice shirt")
+file = File.open("db/images/men_shirt1.jpg")
+shirt.photo.attach(io: file, filename: "men_shirt1.jpg")
 shirt.save!
+
 top = Apparel.new(name: "top", user_id: alvin.id, size: "XL", category: "Business", price: 200, overview: "a nice top")
+file = File.open("db/images/women_shirt1.jpg")
+top.photo.attach(io: file, filename: "women_shirt1.jpg")
 top.save!
-# Apparel.create!(name: "bottom", user_id: 41, size: "XL", category: "Business", price: 200, overview: "a nice bottom")
+
+suit = Apparel.new(name: "suit", user_id: alvin.id, size: "XL", category: "Business", price: 200, overview: "a nice suit")
+file = File.open("db/images/men_suit1.jpg")
+suit.photo.attach(io: file, filename: "men_suit1.jpg")
+suit.save!
+
+dress = Apparel.new(name: "dress", user_id: alvin.id, size: "XL", category: "Business", price: 200, overview: "a nice dress")
+file = File.open("db/images/dress1.jpg")
+dress.photo.attach(io: file, filename: "dress1.jpg")
+dress.save!
+
 
 
 
