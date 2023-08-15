@@ -75,7 +75,6 @@ puts "#{Apparel.count} apparels"
 
 Rental.create!(user_id: gary.id, apparel_id: trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9), status: "accepted")
 
-
 5.times do
   Rental.create!(user_id: [gary.id, ritsuki.id, james.id, alvin.id].sample, apparel_id: [trousers.id, shirt.id, skirt.id, top.id].sample, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9), status: "accepted")
 end

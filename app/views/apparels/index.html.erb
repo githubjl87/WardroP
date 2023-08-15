@@ -1,0 +1,33 @@
+<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('landing_page1.jpg') %>);">
+  <div class="container">
+    <h1><strong>Where Chaos Bows Out and Style Steps In!</strong></h1>
+    <br>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-4">
+    <% @apparels.each do |apparel| %>
+      <div class="col-md-4">
+        <%# <div class="card my-3 mx-3" style="width: 24rem"> %>
+        <div class="card-trip">
+          <%= cl_image_tag apparel.photo.key if apparel.photo.key? %>
+          <div class="card-trip-infos">
+            <div class="d-flex inline-block justify-content-between">
+              <h3 class="inline-block card-title"><%= apparel.name %></h3>
+              <h3 class="inline-block card-text"><%= apparel.size %></h3>
+            </div>
+            <div class="d-flex inline-block justify-content-between">
+              <h3 class="card-text"><%= apparel.category %></h3>
+              <h3 class="card-trip-pricing"><%= apparel.price %></h3>
+            </div>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+          <h3 class="card-title"><%= link_to apparel_path(apparel), class: "text-decoration-none text-secondary" do %>
+              <i class="fa-solid fa-arrow-right"></i>
+            <% end %>
+          </h3>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
