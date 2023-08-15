@@ -14,10 +14,14 @@ Rental.destroy_all
 
 puts "creating DB"
 
-User.create!(username: "Gary", address: Faker::Address.full_address, email: "toppiggary@hotmail.com")
-User.create!(username: "Ritsuki", address: Faker::Address.full_address, email: "ricky0912t@gmail.com")
-User.create!(username: "James", address: Faker::Address.full_address, email: "hkjl87@hotmail.co.uk")
-User.create!(username: "Alvin", address: Faker::Address.full_address, email: "ayaualvin@gmail.com")
+User.create!(username: "Gary", address: Faker::Address.full_address, email: "toppiggary@hotmail.com", password: "123")
+User.create!(username: "Ritsuki", address: Faker::Address.full_address, email: "ricky0912t@gmail.com", password: "123")
+User.create!(username: "James", address: Faker::Address.full_address, email: "hkjl87@hotmail.co.uk", password: "123")
+User.create!(username: "Alvin", address: Faker::Address.full_address, email: "ayaualvin@gmail.com", password: "123")
+
+20.times do
+  User.create!(username: Faker::Name.name , address: Faker::Address.full_address, email: Faker::Internet.email, password: "123")
+end
 
 Apparel.create!(name: "skirt", size: "XL", category: "Business", price: 200 , overview: "a nice skirt")
 Apparel.create!(name: "trousers", size: "XL", category: "Business", price: 200 , overview: "a nice trousers")
@@ -25,6 +29,16 @@ Apparel.create!(name: "shirt", size: "XL", category: "Business", price: 200 , ov
 Apparel.create!(name: "top", size: "XL", category: "Business", price: 200 , overview: "a nice top")
 Apparel.create!(name: "bottom", size: "XL", category: "Business", price: 200 , overview: "a nice bottom")
 
-Rental.create!(user_id: 1, cloth_id: 1, start_date: Date.now - 1, end_date: Date.now, status: "accepted")
+100.times do
+  name = ["skirt", "trousers", "shirt", "suit", "dress", "shoes", "top", "bottom"]
+  category = ["Business", "Party", "Holiday", "Wedding Guest", "Others"]
+  overview = ["Summer", "Winter", "Spring", "Formal", "Wedding"]
+  size = %w[XXS XS S M L XL XXL]
+  Apparel.create!(name: name.sample , size: size.sample, category: category.sample, price: Random.rand(25..250), overview: "Perfect #{overview.sample} clothing")
+end
+
+20.times do
+  Rental.create!(user_id: Random.rand(1..24), cloth_id: Random.rand(1..105), start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9), status: "accepted")
+end
 
 puts "created #{User.count} users, #{Apparel.count} apparels and #{Rental.count} rentals"
