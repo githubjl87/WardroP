@@ -6,6 +6,8 @@ class ApparelsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
+    @apparel = Apparel.find(params[:id])
   end
 
   def new
