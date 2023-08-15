@@ -23,7 +23,7 @@ User.create!(username: "Alvin", address: Faker::Address.full_address, email: "ay
   User.create!(username: Faker::Name.name , address: Faker::Address.full_address, email: Faker::Internet.email, password: "123")
 end
 
-Apparel.create!(name: "skirt", size: "XL", category: "Business", price: 200 , overview: "a nice skirt")
+Apparel.create!(name: "skirt", user_id: 1, size: "XL", category: "Business", price: 200 , overview: "a nice skirt")
 Apparel.create!(name: "trousers", size: "XL", category: "Business", price: 200 , overview: "a nice trousers")
 Apparel.create!(name: "shirt", size: "XL", category: "Business", price: 200 , overview: "a nice shirt")
 Apparel.create!(name: "top", size: "XL", category: "Business", price: 200 , overview: "a nice top")
@@ -34,7 +34,7 @@ Apparel.create!(name: "bottom", size: "XL", category: "Business", price: 200 , o
   category = ["Business", "Party", "Holiday", "Wedding Guest", "Others"]
   overview = ["Summer", "Winter", "Spring", "Formal", "Wedding"]
   size = %w[XXS XS S M L XL XXL]
-  Apparel.create!(name: name.sample , size: size.sample, category: category.sample, price: Random.rand(25..250), overview: "Perfect #{overview.sample} clothing")
+  Apparel.create!(name: name.sample, size: size.sample, category: category.sample, price: Random.rand(25..250), overview: "Perfect #{overview.sample} clothing")
 end
 
 20.times do
