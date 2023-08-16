@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Kavivanar&family=Solitreo&family=Tapestry&family=Tillana:wght@600&display=swap');
+
 .landing {
   background-size: cover;
   background-position: center;
-  height: 700px;
-  padding: 150px 0;
+  height: 900px;
+  width: 1500px;
+  padding: 100px 0;
+  margin: 0 auto;
 }
 
-.landing h1 {
+.landing h1,
+.landing h3 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 32px;
+  font-size: 75px;
+  font-family: 'Bangers', cursive;
   font-weight: bold;
 }
 
@@ -18,4 +24,10 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.un {
+  font-size: 150px;
+  color: #81C3D7;
+  font-family: 'Bangers', cursive;
 }

@@ -1,33 +1,59 @@
-<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('landing_page1.jpg') %>);">
+<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(<%= asset_path('landing_page4.jpg') %>);">
   <div class="container">
-    <h1><strong>Where Chaos Bows Out and Style Steps In!</strong></h1>
-    <br>
+    <div id="typed-text">
+      <script>
+        typed = new Typed('#typed-text', {
+          strings: [
+            "<h1><span class='un'>UN</span> LOAD</h1>",
+            "<h1><span class='un'>UN</span> LOAD</h1>",
+            "<h1><span class='un'>UN</span> LEASH</h1>",
+            "<h1><span class='un'>UN</span> VEIL</h1>"
+            
+          ],
+          typeSpeed: 200,
+          backSpeed: 50,
+          startDelay: 1000,
+          loop: true,
+          showCursor: false,
+          contentType: 'html'
+        });
+      </script>
+    </div>
+    <%# <%= link_to 'Rent Now', apparels_path, class: 'btn btn-info mt-3' %>
   </div>
 </div>
-<div class="container">
-  <div class="row mt-4">
-    <% @apparels.each do |apparel| %>
-      <div class="col-md-4">
-        <%# <div class="card my-3 mx-3" style="width: 24rem"> %>
-        <div class="card-trip">
-          <%= cl_image_tag apparel.photo.key if apparel.photo.key? %>
-          <div class="card-trip-infos">
-            <div class="d-flex inline-block justify-content-between">
-              <h3 class="inline-block card-title"><%= apparel.name %></h3>
-              <h3 class="inline-block card-text"><%= apparel.size %></h3>
+<h1 class="text-center mt-3 lg-title"> NEW ITEMS </h1>
+<div class="cards">
+  <div class="container">
+    <div class="row">
+      <% @apparels.each do |apparel| %>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-img">
+              <%= cl_image_tag apparel.photo.key, class: 'img' if apparel.photo.key? %>
             </div>
-            <div class="d-flex inline-block justify-content-between">
-              <h3 class="card-text"><%= apparel.category %></h3>
-              <h3 class="card-trip-pricing"><%= apparel.price %></h3>
+            <div class="card-btns">
+              <button type="button" class="btn-cart text-black"> add to cart +
+              </button>
+              <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
             </div>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <div class="card-info">
+              <h2 class="sm-title"><%= apparel.category %></h2>
+              <div class="rating my-3">
+                <span><i class="fas fa-star"></i></span>
+                <span><i class="fas fa-star"></i></span>
+                <span><i class="fas fa-star"></i></span>
+                <span><i class="fas fa-star"></i></span>
+                <span><i class="far fa-star"></i></span>
+              </div>
+              <p class="card-name"><%= apparel.name %></p>
+              <p class="card-price">$ <%= apparel.price %></p>
+            </div>
+            <div class="off-info">
+              <h2 class="sm-title">10% off</h2>
+            </div>
           </div>
-          <h3 class="card-title"><%= link_to apparel_path(apparel), class: "text-decoration-none text-secondary" do %>
-              <i class="fa-solid fa-arrow-right"></i>
-            <% end %>
-          </h3>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
