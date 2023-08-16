@@ -1,0 +1,14 @@
+<div class=“container”>
+  <h6>Respond to request:</h6>
+  <%= simple_form_for [@rental]  do |f| %>
+    <%= f.input :status, label: 'Your Decision', collection: ['accepted', 'rejected'] %>
+    <div class="d-flex justify-content-center my-2">
+      <div>
+        <%= link_to "Go back", rentals_path, class: "btn btn-info mx-3"%>
+      </div>
+      <div>
+        <%= f.submit "Confirm", class: "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>
