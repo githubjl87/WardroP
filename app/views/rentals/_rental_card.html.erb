@@ -3,7 +3,7 @@
     <%= cl_image_tag rental.apparel.photo.key, class: 'img' if rental.apparel.photo.key? %>
     <div class="card-product-infos">
       <%= link_to rental.apparel.name.capitalize, apparel_path(rental.apparel) %>
-      <p>Cost: <strong>$<%= (rental.apparel.price * 2.45).round(2) %></strong></p>
+      <p>Cost: <strong>$<%= sprintf('%.2f', (rental.apparel.price * 2.45))%></strong></p>
       <p>Size: <strong><%= rental.apparel.size.upcase %></strong></p>
       <div class="d-flex justify-content-between">
         <p>Rental Start: <strong><%= rental.start_date %></strong></p>
