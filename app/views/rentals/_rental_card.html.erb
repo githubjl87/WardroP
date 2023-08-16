@@ -1,0 +1,14 @@
+<div class="col-4">
+  <div class="card-product">
+    <%= cl_image_tag rental.apparel.photo.key, class: 'img' if rental.apparel.photo.key? %>
+    <div class="card-product-infos">
+      <%= link_to rental.apparel.name.capitalize, apparel_path(rental.apparel) %>
+      <p>Cost: <strong>$<%= sprintf('%.2f', (rental.apparel.price * 2.45))%></strong></p>
+      <p>Size: <strong><%= rental.apparel.size.upcase %></strong></p>
+      <div class="d-flex justify-content-between">
+        <p>Rental Start: <strong><%= rental.start_date %></strong></p>
+        <p>Rental End: <strong><%= rental.end_date %></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
