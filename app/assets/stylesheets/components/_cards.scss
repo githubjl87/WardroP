@@ -1,39 +1,199 @@
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --option1: #2F6690;
+  --option2: #3A7CA5;
+  --option3: #D9DCD6;
+  --option4: #16425B;
+  --option5: #81C3D7;
 }
 
-.card-trip>img {
-  height: 200px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Utility stylings */
+.img {
   width: 100%;
-  object-fit: cover;
+  height: 350px;
+  display: block;
 }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.container {
+  width: 88vm;
+  margin: 0 auto;
 }
 
-.card-trip p {
+.lg-title,
+.md-title,
+.sm-title {
+  font-family: 'Roboto', sans-serif;
+  text-transform: capitalize;
+}
+
+.lg-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 1.3rem 0;
+  opacity: 0.9;
+}
+
+.md-title {
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sm-title {
+  font-weight: 300;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.text-light {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  opacity: 0.5;
+  margin: 0.4rem 0;
+}
+
+/* product section */
+
+.cards .text-light {
+  text-align: center;
+  width: 70%;
+  margin: 0.9rem auto;
+}
+
+.card {
+  margin: 0.5rem;
+  position: relative;
+  width: 280px;
+  height: 400px;
+}
+
+.card-content {
+  background: var(--gray);
+  padding: 3rem 0.5rem 2rem 0.5rem;
+  cursor: pointer;
+}
+
+.card-img {
+  background: var(--option1);
+  width: 250px;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.card-btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.4rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.btn-cart,
+.btn-rent {
+  background: transparent;
+  border: 1px solid black;
+  padding: 0.8rem 0;
+  width: 125px;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
   font-size: 12px;
-  opacity: .7;
-  margin: 0;
 }
 
+.btn-cart {
+  color: black;
+}
 
-.card-trip .card-trip-infos {
-  padding: 16px;
+.btn-cart:hover {
+  background: var(--option5);
+}
+
+.btn-rent {
+  color: black;
+}
+
+.btn-rent:hover {
+  background: var(--option5);
+}
+
+.card-info {
+  background: white;
+  padding: 2rem;
+}
+
+.card-info-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  align-items: center;
 }
 
-.card-trip-infos .card-trip-user {
+.rating span {
+  color: var(--option5);
+}
+
+.card-name {
+  color: black;
+  display: block;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card-price {
+  padding-right: 0.6rem;
+  display: inline-block;
+}
+
+.card-price:first-of-type {
+  text-decoration: line-through;
+  color: var(--option4);
+}
+
+.card-img img {
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+.card:hover .card-img {
+  background: var(--option4);
+}
+
+.card:hover .card-btns {
+  opacity: 1;
+}
+
+.off-info .sm-title {
+  background: var(--option4);
+  color: white;
+  display: inline-block;
+  padding: 0.5rem;
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  top: 0;
+  left: 0;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  z-index: 1;
+  letter-spacing: 3px;
+  cursor: pointer;
 }
