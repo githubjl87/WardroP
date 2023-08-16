@@ -47,7 +47,7 @@
                   <span><i class="far fa-star"></i></span>
                 </div>
                 <p class="card-name"><%= apparel.name %></p>
-                <p class="card-price">$ <%= apparel.price %></p>
+                <p class="card-price">$<%= sprintf('%.2f', (apparel.price)) %></p>
               </div>
               <div class="off-info">
                 <h2 class="sm-title">10% off</h2>
