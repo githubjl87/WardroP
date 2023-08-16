@@ -1,7 +1,14 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<div class="col-4">
+  <div class="card-product">
+    <%= cl_image_tag rental.apparel.photo.key, class: 'img' if rental.apparel.photo.key? %>
+    <div class="card-product-infos">
+      <%= link_to rental.apparel.name.capitalize, apparel_path(rental.apparel) %>
+      <p>Cost: <strong>$<%= (rental.apparel.price * 2.45).round(2) %></strong></p>
+      <p>Size: <strong><%= rental.apparel.size.upcase %></strong></p>
+      <div class="d-flex justify-content-between">
+        <p>Rental Start: <strong><%= rental.start_date %></strong></p>
+        <p>Rental End: <strong><%= rental.end_date %></strong></p>
+      </div>
+    </div>
   </div>
 </div>

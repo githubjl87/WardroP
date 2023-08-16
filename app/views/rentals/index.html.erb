@@ -1,12 +1,11 @@
+<%= render 'rental_landing' %>
 <div class="container">
-  <H1>Your Rentals</H1>
-  <% @rentals.each do |rental| %>
-    <p><%= link_to rental.apparel.name, apparel_path(rental.apparel) %></p>
-    <p><%= rental.apparel.size %></p>
-    <p><%= rental.apparel.category %></p>
-    <p><%= rental.apparel.overview %></p>
-    <p><%= rental.start_date %></p>
-    <p><%= rental.end_date %></p>
-  <% end %>
+  <div class="text-center mt-3 lg-title">
+    <h1>YOUR RENTALS</h1>
+  </div>
+  <div class="row">
+    <% @rentals.each do |rental| %>
+      <%= render 'rental_card', rental: rental %>
+    <% end %>
+  </div>
 </div>
-<%= render 'rental_card' %>
