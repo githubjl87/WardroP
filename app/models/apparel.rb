@@ -4,13 +4,13 @@ class Apparel < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true
-  validates :size, presence: true, inclusion: { in: %w[XXS XS S M L XL XXL] }
-  validates :category, presence: true, inclusion: { in: ["Business", "Party", "Holiday", "Wedding Guest", "Others"] }
+  validates :size, presence: true, inclusion: { in: %w[xxs xs s m l xl xxl] }
+  validates :category, presence: true, inclusion: { in: ["business", "party", "holiday", "wedding", "casual", "other"] }
   validates :price, presence: true
   validates :overview, length: { minimum: 10, maximum: 100 }, allow_blank: false
 
   def self.search(query)
-    where("name LIKE ?", "%#{query}%")
+    where("CONCAT(name, category, overview, size) LIKE ?", "%#{query}%")
   end
 end
 
