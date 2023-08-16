@@ -1,6 +1,14 @@
+.container-fluid:hover {
+  background-color: white;
+  opacity: 0.8;
+  transition: background 0.5s ease;
+  width: 100%;
+  height: 60px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: #D9DCD6;
+  height: 100px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,11 +16,13 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 80px;
+  width: 170px;
+  margin: 0px 50px;
 }
 
 .nav-item {
   font-weight: 600;
+  margin: 0 15px;
 }
 
 .search-form-control {
@@ -40,4 +50,9 @@
 
 .fas .fa-search {
   height: 60px;
+}
+
+.wardrop-logo img {
+  width: 150px;
+  height: auto;
 }

@@ -3,9 +3,9 @@
 .landing {
   background-size: cover;
   background-position: center;
-  height: 900px;
+  height: 1000px;
   width: 1500px;
-  padding: 100px 0;
+  padding: 10px 0px;
   margin: 0 auto;
 }
 
@@ -30,4 +30,16 @@
   font-size: 150px;
   color: #81C3D7;
   font-family: 'Bangers', cursive;
+}
+
+#typed-text {
+  display: flex;
+  margin: 100px 200px;
+}
+
+.fixed-search-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
