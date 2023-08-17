@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
 
   def update
     if @rental.update(rental_params)
-      redirect_to rental_path(@rental)
+      redirect_to rentals_path
     else
       render :edit, status: :unprocessable_entity
     end
