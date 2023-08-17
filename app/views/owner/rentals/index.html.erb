@@ -1,0 +1,25 @@
+<%= render "shared/navbar" %>
+<%# Renters' listings %>
+<div class="text-center mt-3 lg-title">
+  <h1>MY LISTING</h1>
+</div>
+<div class="row">
+  <% @apparels.each do |apparel| %>
+    <% if apparel.id == apparel.user_id %>
+      <%= render 'apparels/apparel_card' %>
+    <% end %>
+  <% end %>
+</div>
+<%# Renters' confirmation for requests %>
+<div class="text-center mt-3 lg-title">
+  <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
+</div>
+<div class="row">
+  <% @rentals.each do |rental| %>
+    <% apparel = Apparel.find(rental.apparel_id) %>
+    <% if current_user.id == apparel.user_id %>
+      <%= render 'rentals/rentee_card', rental: rental%>
+    <% end %>
+  <% end %>
+</div>
+</div>

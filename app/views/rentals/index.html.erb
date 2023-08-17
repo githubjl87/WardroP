@@ -12,15 +12,3 @@
       <% end %>
     <% end %>
   </div>
-  <div class="text-center mt-3 lg-title">
-    <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
-  </div>
-  <div class="row">
-    <% @rentals.each do |rental| %>
-      <% apparel = Apparel.find(rental.apparel_id) %>
-      <% if current_user.id == apparel.user_id %>
-        <%= render 'rentee_card', rental: rental%>
-      <% end %>
-    <% end %>
-  </div>
-</div>
