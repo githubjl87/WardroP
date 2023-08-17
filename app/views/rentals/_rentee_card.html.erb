@@ -21,6 +21,13 @@
             <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
             <%= f.submit 'Reject', class: 'btn btn-danger' %>
           <% end %>
+        <% elsif rental.status == "rejected" || rental.status == "delivered" %>
+          <div class="d-flex justify-content-between">
+            <p class='booking-tag'><%= rental.status.upcase %></p>
+            <%= link_to rental_path(rental), data: { turbo_method: :delete, turbo_confirm: "Delete Rental?" } do %>
+              <i class="fa-solid fa-delete-left fa-lg"></i>
+            <% end %>
+          </div>
         <% else %>
           <!-- Display Status-->
           <p class='booking-tag'><%= rental.status.upcase %></p>

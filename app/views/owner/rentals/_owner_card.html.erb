@@ -4,9 +4,9 @@
       <%= cl_image_tag apparel.photo.key, class: 'img' if apparel.photo.key? %>
     </div>
     <div class="card-btns">
-      <button type="button" class="btn-cart text-black"> add to cart +
+      <button type="button" class="btn-cart text-black"> share
       </button>
-      <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
+      <button type="button" class="btn-rent"><%= link_to "Delete", apparel_path(apparel), class: 'text-decoration-none text-black', data: { turbo_method: :delete, turbo_confirm: "Delete #{apparel.name.split.map(&:capitalize).join(' ')}?" } %></button>
     </div>
     <div class="card-info">
       <h2 class="sm-title"><%= apparel.category %></h2>

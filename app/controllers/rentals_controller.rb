@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   before_action :set_apparel, only: :create
-  before_action :set_rental, only: [:edit, :update]
+  before_action :set_rental, only: [:edit, :update, :destroy]
 
   def index
     @rentals = Rental.all
@@ -26,6 +26,15 @@ class RentalsController < ApplicationController
       redirect_to owner_rentals_path
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @rental.destroy
+    if @rental.destroy
+      redirect_to owner_rentals_path(@rental)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

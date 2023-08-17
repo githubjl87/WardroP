@@ -4,11 +4,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "apparels#index"
-  resources :apparels, only: [ :index, :show, :new, :create, :edit, :update, :destroy ] do
-    resources :rentals, only: [ :create ]
+  resources :apparels, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :rentals, only: [:create]
   end
   namespace :owner do
     resources :rentals, only: :index
   end
-  resources :rentals, only: [ :index, :edit, :update ]
+  resources :rentals, only: [:index, :edit, :update, :destroy]
 end
