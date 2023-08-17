@@ -8,7 +8,9 @@
       <%# <div class="d-flex justify-content-between"> %>
       <p>Rental Start: <strong><%= rental.start_date %></strong></p>
       <p>Rental End: <strong><%= rental.end_date %></strong></p>
-      <h4><strong><%= rental.status.nil? ? "REQUESTED" : rental.status.upcase %></strong></h4>
+      <div class="<%=rental.status%>">
+        <h4><strong><%= rental.status.nil? ? "TO" : "#{rental.status.upcase} BY" %>: <%= @requester.username.upcase %></strong></h4>
+      </div>
       <%# </div> %>
     </div>
   </div>

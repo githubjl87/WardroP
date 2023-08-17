@@ -8,9 +8,11 @@
       <%# <div class="d-flex justify-content-between"> %>
       <p>Rental Start: <strong><%= rental.start_date %></strong></p>
       <p>Rental End: <strong><%= rental.end_date %></strong></p>
-      <h4><strong>REQUESTED BY <%= User.find(rental.user_id).username.upcase %></strong></h4>
+      <h4>FROM: <strong><%= User.find(rental.user_id).username.upcase %></strong></h4>
       <% rental.status =  params[:status] if  params[:status].present? %>
-      <h4><strong><%= rental.status.nil? ? "REQUESTED" : rental.status.upcase %></strong></h4>
+      <div class="<%=rental.status%>">
+        <h4>STATUS: <strong><%= rental.status.nil? ? "REQUESTED" : rental.status.upcase %></strong></h4>
+      </div>
       <%= link_to 'Respond', edit_rental_path(rental) %>
       <%# </div> %>
     </div>
