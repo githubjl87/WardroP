@@ -5,8 +5,9 @@
 </div>
 <div class="row">
   <% @apparels.each do |apparel| %>
-    <% if apparel.id == apparel.user_id %>
-      <%= render 'apparels/apparel_card' %>
+    <% if current_user.id == apparel.user_id %>
+      <%= render 'owner_card', apparel: apparel %>
+      <%# <%= render 'apparels/apparel_card', apparel: apparel%>
     <% end %>
   <% end %>
 </div>
