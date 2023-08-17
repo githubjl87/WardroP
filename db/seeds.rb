@@ -23,10 +23,6 @@ james.save!
 alvin = User.new(username: "alvin", address: "356-3 Muyacho kizu, Naruto shi, Tokushima ken", email: "ayaualvin@gmail.com", password: "123456")
 alvin.save!
 
-5.times do
-  User.create!(username: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, password: "123456")
-end
-
 puts "created #{User.count} users"
 
 # skirts
@@ -38,7 +34,7 @@ puts "created #{User.count} users"
 # skirt.save!
 
 # mens trousers
-puts "Creating mens trousers"
+puts "Creating mens trousers (1/7)"
 
 ritsuki_trousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
 file = File.open("db/images/men_trousers2.jpg")
@@ -61,7 +57,7 @@ james_trousers.photo.attach(io: file, filename: "men_trousers5.jpg")
 james_trousers.save!
 
 # womens trousers
-puts "Creating womens trousers"
+puts "Creating womens trousers (2/7)"
 
 ritsuki_wtrousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
 file = File.open("db/images/women_trousers1.jpg")
@@ -89,7 +85,7 @@ ritsuki_wtrousers2.photo.attach(io: file, filename: "women_trousers5.jpg")
 ritsuki_wtrousers2.save!
 
 # men shirts
-puts "Creating men shirts"
+puts "Creating men shirts (3/7)"
 
 james_shirt = Apparel.new(name: "shirt", user_id: james.id, size: "m", category: "party", price: Random.rand(10..50), overview: "nice shirt")
 file = File.open("db/images/men_shirt1.jpg")
@@ -102,7 +98,7 @@ alvin_shirt.photo.attach(io: file, filename: "men_shirt2.jpg")
 alvin_shirt.save!
 
 # women shirts
-puts "Creating women shirts"
+puts "Creating women shirts (4/7)"
 
 alvin_top = Apparel.new(name: "shirt", user_id: alvin.id, size: "xxl", category: "business", price: Random.rand(10..50), overview: "very nice top")
 file = File.open("db/images/women_shirt1.jpg")
@@ -120,7 +116,7 @@ james_top.photo.attach(io: file, filename: "women_shirt3.jpg")
 james_top.save!
 
 # men suits
-puts "Creating men suits"
+puts "Creating men suits (5/7)"
 
 alvin_suit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice suit")
 file = File.open("db/images/men_suit1.jpg")
@@ -138,7 +134,7 @@ james_suit.photo.attach(io: file, filename: "men_suit3.jpg")
 james_suit.save!
 
 # women suits
-puts "Creating women suits"
+puts "Creating women suits (6/7)"
 
 alvin_wsuit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice suit")
 file = File.open("db/images/women_suit3.jpg")
@@ -151,7 +147,7 @@ ritsuki_wsuit.photo.attach(io: file, filename: "women_suit4.jpg")
 ritsuki_wsuit.save!
 
 # Dresses
-puts "Creating dresses"
+puts "Creating dresses (7/7)"
 
 gary_dress = Apparel.new(name: "dress", user_id: gary.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice dress")
 file = File.open("db/images/dress1.jpg")
@@ -176,21 +172,18 @@ gary_dress2.save!
 
 
 
+puts "Created #{Apparel.count} apparels"
 
-# 20.times do
-#   name = ["skirt", "trousers", "shirt", "suit", "dress", "shoes", "top", "bottom"]
-#   category = ["business", "party", "holiday", "wedding", "casual", "other"]
-#   overview = ["summer", "winter", "spring", "formal", "wedding"]
-#   size = %w[xxs xs s m l xl xxl]
-#   Apparel.create!(name: name.sample, user_id: [gary.id, ritsuki.id, james.id, alvin.id].sample, size: size.sample, category: category.sample, price: Random.rand(25..250), overview: "Perfect #{overview.sample} clothing")
-# end
-
-puts "#{Apparel.count} apparels"
+puts "Creating Rentals (final step)"
 
 Rental.create!(user_id: gary.id, apparel_id: james_trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 Rental.create!(user_id: ritsuki.id, apparel_id: alvin_shirt.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 Rental.create!(user_id: james.id, apparel_id: gary_top.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 Rental.create!(user_id: alvin.id, apparel_id: ritsuki_suit.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 
+Rental.create!(user_id: gary.id, apparel_id: james_suit.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: ritsuki.id, apparel_id: alvin_top.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: james.id, apparel_id: gary_trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: alvin.id, apparel_id: ritsuki_trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 
 puts "created #{User.count} users, #{Apparel.count} apparels and #{Rental.count} rentals"

@@ -6,8 +6,8 @@
   <div class="row">
     <% @rentals.each do |rental| %>
       <% if current_user.id == rental.user_id %>
-        <% @apparel = Apparel.find(rental.apparel_id) %>
-        <% @requester = User.find(@apparel.user_id) %>
+        <% @clothing = Apparel.find(rental.apparel_id) %>
+        <% @requester = User.find(@clothing.user_id) %>
         <%= render 'rental_card', rental: rental%>
       <% end %>
     <% end %>

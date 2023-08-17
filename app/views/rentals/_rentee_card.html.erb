@@ -1,5 +1,5 @@
 <div class="col-4">
-  <div class="card-product">
+  <div class="card-product <%=rental.status%>">
     <%= cl_image_tag rental.apparel.photo.key, class: 'img' if rental.apparel.photo.key? %>
     <div class="card-product-infos">
       <%= link_to rental.apparel.name.capitalize, apparel_path(rental.apparel), class: 'text-decoration-none' %>
@@ -8,12 +8,24 @@
       <%# <div class="d-flex justify-content-between"> %>
       <p>Rental Start: <strong><%= rental.start_date %></strong></p>
       <p>Rental End: <strong><%= rental.end_date %></strong></p>
-      <h4>FROM: <strong><%= User.find(rental.user_id).username.upcase %></strong></h4>
-      <% rental.status =  params[:status] if  params[:status].present? %>
-      <div class="<%=rental.status%>">
-        <h4>STATUS: <strong><%= rental.status.nil? ? "REQUESTED" : rental.status.upcase %></strong></h4>
+      <div class="mt-3">
+        <h6><strong>FROM: <%= User.find(rental.user_id).username.upcase %></strong></h6>
       </div>
-      <%= link_to 'Respond', edit_rental_path(rental) %>
+      <div class="d-flex">
+        <% if rental.status.nil? %>
+          <%= simple_form_for rental do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for rental do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <% end %>
+        <% else %>
+          <!-- Display Status-->
+          <p class='booking-tag'><%= rental.status %></p>
+        <% end %>
+      </div>
       <%# </div> %>
     </div>
   </div>
