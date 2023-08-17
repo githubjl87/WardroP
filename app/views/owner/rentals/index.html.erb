@@ -5,11 +5,10 @@
 </div>
 <div class="row">
   <% @apparels.each do |apparel| %>
-    <% if current_user.id = apparel.user_id %>
-      <%= render 'apparel_card', apparel: apparel %>
+    <% if apparel.id == apparel.user_id %>
+      <%= render 'apparels/apparel_card' %>
     <% end %>
   <% end %>
-</div>
 </div>
 <%# Renters' confirmation for requests %>
 <div class="text-center mt-3 lg-title">
@@ -19,7 +18,7 @@
   <% @rentals.each do |rental| %>
     <% apparel = Apparel.find(rental.apparel_id) %>
     <% if current_user.id == apparel.user_id %>
-      <%= render 'rentee_card', rental: rental%>
+      <%= render 'rentals/rentee_card', rental: rental%>
     <% end %>
   <% end %>
 </div>
