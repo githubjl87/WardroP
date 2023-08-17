@@ -1,26 +1,27 @@
 <%= render "shared/navbar" %>
 <%# Renters' listings %>
-<div class="text-center mt-3 lg-title">
-  <h1>MY LISTING</h1>
-</div>
-<div class="row">
-  <% @apparels.each do |apparel| %>
-    <% if current_user.id == apparel.user_id %>
-      <%= render 'owner_card', apparel: apparel %>
-      <%# <%= render 'apparels/apparel_card', apparel: apparel%>
+<div class="container mb-5">
+  <div class="text-center mt-3 lg-title">
+    <h1>MY LISTING</h1>
+  </div>
+  <div class="row">
+    <% @apparels.each do |apparel| %>
+      <% if current_user.id == apparel.user_id %>
+        <%= render 'owner_card', apparel: apparel %>
+        <%# <%= render 'apparels/apparel_card', apparel: apparel%>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<%# Renters' confirmation for requests %>
-<div class="text-center mt-3 lg-title">
-  <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
-</div>
-<div class="row">
-  <% @rentals.sort_by{ |rental| rental.start_date }.each do |rental| %>
-    <% apparel = Apparel.find(rental.apparel_id) %>
-    <% if current_user.id == apparel.user_id %>
-      <%= render 'rentals/rentee_card', rental: rental%>
+  </div>
+  <%# Renters' confirmation for requests %>
+  <div class="text-center mt-3 lg-title">
+    <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
+  </div>
+  <div class="row">
+    <% @rentals.sort_by{ |rental| rental.start_date }.each do |rental| %>
+      <% apparel = Apparel.find(rental.apparel_id) %>
+      <% if current_user.id == apparel.user_id %>
+        <%= render 'rentals/rentee_card', rental: rental%>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 </div>
