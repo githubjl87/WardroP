@@ -28,7 +28,7 @@ puts "created #{User.count} users"
 # skirts
 # puts "Creating skirts"
 
-# skirt = Apparel.new(name: "skirt", user_id: gary.id, size: "xl", category: "business", price: Random.rand(10..50), overview: "nice skirt")
+# skirt = Apparel.new(name: "skirt", user_id: gary.id, size: "xl", category: "business", price: Random.rand(5..25), overview: "nice skirt")
 # file = File.open("db/images/skirt1.jpg")
 # skirt.photo.attach(io: file, filename: "skirt1.jpg")
 # skirt.save!
@@ -36,22 +36,22 @@ puts "created #{User.count} users"
 # mens trousers
 puts "Creating mens trousers (1/7)"
 
-ritsuki_trousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
+ritsuki_trousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/men_trousers2.jpg")
 ritsuki_trousers.photo.attach(io: file, filename: "men_trousers2.jpg")
 ritsuki_trousers.save!
 
-gary_trousers = Apparel.new(name: "trousers", user_id: gary.id, size: "l", category: "casual", price: Random.rand(10..50), overview: "nice trousers")
+gary_trousers = Apparel.new(name: "trousers", user_id: gary.id, size: "l", category: "casual", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/men_trousers3.jpg")
 gary_trousers.photo.attach(io: file, filename: "men_trousers3.jpg")
 gary_trousers.save!
 
-alvin_trousers = Apparel.new(name: "trousers", user_id: alvin.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
+alvin_trousers = Apparel.new(name: "trousers", user_id: alvin.id, size: "l", category: "business", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/men_trousers4.jpg")
 alvin_trousers.photo.attach(io: file, filename: "men_trousers4.jpg")
 alvin_trousers.save!
 
-james_trousers = Apparel.new(name: "trousers", user_id: james.id, size: "l", category: "casual", price: Random.rand(10..50), overview: "nice trousers")
+james_trousers = Apparel.new(name: "trousers", user_id: james.id, size: "l", category: "casual", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/men_trousers5.jpg")
 james_trousers.photo.attach(io: file, filename: "men_trousers5.jpg")
 james_trousers.save!
@@ -59,27 +59,27 @@ james_trousers.save!
 # womens trousers
 puts "Creating womens trousers (2/7)"
 
-ritsuki_wtrousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
+ritsuki_wtrousers = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "business", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/women_trousers1.jpg")
 ritsuki_wtrousers.photo.attach(io: file, filename: "women_trousers1.jpg")
 ritsuki_wtrousers.save!
 
-gary_wtrousers = Apparel.new(name: "trousers", user_id: gary.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
+gary_wtrousers = Apparel.new(name: "trousers", user_id: gary.id, size: "l", category: "business", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/women_trousers2.jpg")
 gary_wtrousers.photo.attach(io: file, filename: "women_trousers2.jpg")
 gary_wtrousers.save!
 
-alvin_wtrousers = Apparel.new(name: "trousers", user_id: alvin.id, size: "l", category: "business", price: Random.rand(10..50), overview: "nice trousers")
+alvin_wtrousers = Apparel.new(name: "trousers", user_id: alvin.id, size: "l", category: "business", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/women_trousers3.jpg")
 alvin_wtrousers.photo.attach(io: file, filename: "women_trousers3.jpg")
 alvin_wtrousers.save!
 
-james_wtrousers = Apparel.new(name: "trousers", user_id: james.id, size: "l", category: "casual", price: Random.rand(10..50), overview: "nice trousers")
+james_wtrousers = Apparel.new(name: "trousers", user_id: james.id, size: "l", category: "casual", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/women_trousers4.jpg")
 james_wtrousers.photo.attach(io: file, filename: "women_trousers4.jpg")
 james_wtrousers.save!
 
-ritsuki_wtrousers2 = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "casual", price: Random.rand(10..50), overview: "nice trousers")
+ritsuki_wtrousers2 = Apparel.new(name: "trousers", user_id: ritsuki.id, size: "l", category: "casual", price: Random.rand(5..25), overview: "nice trousers")
 file = File.open("db/images/women_trousers5.jpg")
 ritsuki_wtrousers2.photo.attach(io: file, filename: "women_trousers5.jpg")
 ritsuki_wtrousers2.save!
@@ -87,12 +87,12 @@ ritsuki_wtrousers2.save!
 # men shirts
 puts "Creating men shirts (3/7)"
 
-james_shirt = Apparel.new(name: "shirt", user_id: james.id, size: "m", category: "party", price: Random.rand(10..50), overview: "nice shirt")
+james_shirt = Apparel.new(name: "shirt", user_id: james.id, size: "m", category: "party", price: Random.rand(5..25), overview: "nice shirt")
 file = File.open("db/images/men_shirt1.jpg")
 james_shirt.photo.attach(io: file, filename: "men_shirt1.jpg")
 james_shirt.save!
 
-alvin_shirt = Apparel.new(name: "shirt", user_id: alvin.id, size: "m", category: "casual", price: Random.rand(10..50), overview: "nice shirt")
+alvin_shirt = Apparel.new(name: "shirt", user_id: alvin.id, size: "m", category: "casual", price: Random.rand(5..25), overview: "nice shirt")
 file = File.open("db/images/men_shirt2.jpg")
 alvin_shirt.photo.attach(io: file, filename: "men_shirt2.jpg")
 alvin_shirt.save!
@@ -100,17 +100,17 @@ alvin_shirt.save!
 # women shirts
 puts "Creating women shirts (4/7)"
 
-alvin_top = Apparel.new(name: "shirt", user_id: alvin.id, size: "xxl", category: "business", price: Random.rand(10..50), overview: "very nice top")
+alvin_top = Apparel.new(name: "shirt", user_id: alvin.id, size: "xxl", category: "business", price: Random.rand(5..25), overview: "very nice top")
 file = File.open("db/images/women_shirt1.jpg")
 alvin_top.photo.attach(io: file, filename: "women_shirt1.jpg")
 alvin_top.save!
 
-gary_top = Apparel.new(name: "top", user_id: gary.id, size: "xxl", category: "casual", price: Random.rand(10..50), overview: "very nice top")
+gary_top = Apparel.new(name: "top", user_id: gary.id, size: "xxl", category: "casual", price: Random.rand(5..25), overview: "very nice top")
 file = File.open("db/images/women_shirt2.jpg")
 gary_top.photo.attach(io: file, filename: "women_shirt2.jpg")
 gary_top.save!
 
-james_top = Apparel.new(name: "top", user_id: james.id, size: "xxl", category: "party", price: Random.rand(10..50), overview: "very nice top")
+james_top = Apparel.new(name: "top", user_id: james.id, size: "xxl", category: "party", price: Random.rand(5..25), overview: "very nice top")
 file = File.open("db/images/women_shirt3.jpg")
 james_top.photo.attach(io: file, filename: "women_shirt3.jpg")
 james_top.save!
@@ -118,17 +118,17 @@ james_top.save!
 # men suits
 puts "Creating men suits (5/7)"
 
-alvin_suit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice suit")
+alvin_suit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(5..25), overview: "very nice suit")
 file = File.open("db/images/men_suit1.jpg")
 alvin_suit.photo.attach(io: file, filename: "men_suit1.jpg")
 alvin_suit.save!
 
-ritsuki_suit = Apparel.new(name: "suit", user_id: ritsuki.id, size: "l", category: "wedding", price: Random.rand(10..50), overview: "very nice suit")
+ritsuki_suit = Apparel.new(name: "suit", user_id: ritsuki.id, size: "l", category: "wedding", price: Random.rand(5..25), overview: "very nice suit")
 file = File.open("db/images/men_suit2.jpg")
 ritsuki_suit.photo.attach(io: file, filename: "men_suit2.jpg")
 ritsuki_suit.save!
 
-james_suit = Apparel.new(name: "suit", user_id: james.id, size: "s", category: "business", price: Random.rand(10..50), overview: "very nice suit")
+james_suit = Apparel.new(name: "suit", user_id: james.id, size: "s", category: "business", price: Random.rand(5..25), overview: "very nice suit")
 file = File.open("db/images/men_suit3.jpg")
 james_suit.photo.attach(io: file, filename: "men_suit3.jpg")
 james_suit.save!
@@ -136,12 +136,12 @@ james_suit.save!
 # women suits
 puts "Creating women suits (6/7)"
 
-alvin_wsuit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice suit")
+alvin_wsuit = Apparel.new(name: "suit", user_id: alvin.id, size: "xs", category: "business", price: Random.rand(5..25), overview: "very nice suit")
 file = File.open("db/images/women_suit3.jpg")
 alvin_wsuit.photo.attach(io: file, filename: "women_suit3.jpg")
 alvin_wsuit.save!
 
-ritsuki_wsuit = Apparel.new(name: "suit", user_id: ritsuki.id, size: "l", category: "wedding", price: Random.rand(10..50), overview: "very nice suit")
+ritsuki_wsuit = Apparel.new(name: "suit", user_id: ritsuki.id, size: "l", category: "wedding", price: Random.rand(5..25), overview: "very nice suit")
 file = File.open("db/images/women_suit4.jpg")
 ritsuki_wsuit.photo.attach(io: file, filename: "women_suit4.jpg")
 ritsuki_wsuit.save!
@@ -149,22 +149,22 @@ ritsuki_wsuit.save!
 # Dresses
 puts "Creating dresses (7/7)"
 
-gary_dress = Apparel.new(name: "dress", user_id: gary.id, size: "xs", category: "business", price: Random.rand(10..50), overview: "very nice dress")
+gary_dress = Apparel.new(name: "dress", user_id: gary.id, size: "xs", category: "business", price: Random.rand(5..25), overview: "very nice dress")
 file = File.open("db/images/dress1.jpg")
 gary_dress.photo.attach(io: file, filename: "dress1.jpg")
 gary_dress.save!
 
-james_dress = Apparel.new(name: "dress", user_id: james.id, size: "s", category: "party", price: Random.rand(10..50), overview: "very nice dress")
+james_dress = Apparel.new(name: "dress", user_id: james.id, size: "s", category: "party", price: Random.rand(5..25), overview: "very nice dress")
 file = File.open("db/images/dress2.jpg")
 james_dress.photo.attach(io: file, filename: "dress2.jpg")
 james_dress.save!
 
-ritsuki_dress = Apparel.new(name: "dress", user_id: ritsuki.id, size: "m", category: "wedding", price: Random.rand(10..50), overview: "very nice dress")
+ritsuki_dress = Apparel.new(name: "dress", user_id: ritsuki.id, size: "m", category: "wedding", price: Random.rand(5..25), overview: "very nice dress")
 file = File.open("db/images/dress3.jpg")
 ritsuki_dress.photo.attach(io: file, filename: "dress3.jpg")
 ritsuki_dress.save!
 
-gary_dress2 = Apparel.new(name: "dress", user_id: gary.id, size: "m", category: "casual", price: Random.rand(10..50), overview: "very nice dress")
+gary_dress2 = Apparel.new(name: "dress", user_id: gary.id, size: "m", category: "casual", price: Random.rand(5..25), overview: "very nice dress")
 file = File.open("db/images/dress4.jpg")
 gary_dress2.photo.attach(io: file, filename: "dress4.jpg")
 gary_dress2.save!
