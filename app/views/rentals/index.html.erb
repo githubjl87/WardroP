@@ -1,11 +1,23 @@
-<%= render 'rental_landing' %>
+<%= render "shared/navbar" %>
 <div class="container mb-5">
   <div class="text-center mt-3 lg-title">
-    <h1>YOUR RENTALS</h1>
+    <h1><%= current_user.username.upcase %>'S RENTAL REQUESTS</h1>
   </div>
   <div class="row">
     <% @rentals.each do |rental| %>
-      <%= render 'rental_card', rental: rental %>
+      <% if current_user.id == rental.user_id %>
+        <%= render 'rental_card', rental: rental%>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="text-center mt-3 lg-title">
+    <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
+  </div>
+  <div class="row">
+    <% @rentals.each do |rental| %>
+      <% if current_user.id != rental.user_id %>
+        <%= render 'rentee_card', rental: rental%>
+      <% end %>
     <% end %>
   </div>
 </div>

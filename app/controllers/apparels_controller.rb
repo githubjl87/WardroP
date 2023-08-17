@@ -4,7 +4,7 @@ class ApparelsController < ApplicationController
 
   def index
     @apparels = Apparel.all
-    @apparels = Apparel.search(params[:search][:query].downcase) if params[:search].present?
+    @apparels = Apparel.search(params[:search][:query]) if params[:search].present?
   end
 
   def show

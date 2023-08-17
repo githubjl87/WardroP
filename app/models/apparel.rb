@@ -10,7 +10,7 @@ class Apparel < ApplicationRecord
   validates :overview, length: { minimum: 10, maximum: 100 }, allow_blank: false
 
   def self.search(query)
-    where("CONCAT(name, category, overview, size) LIKE ?", "%#{query}%")
+    where("CONCAT(name, category, overview, size) ILIKE ?", "%#{query}%")
   end
 end
 
