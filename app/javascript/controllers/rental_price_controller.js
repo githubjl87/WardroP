@@ -16,8 +16,7 @@ export default class extends Controller {
         new Date(this.startDateTarget.value);
       const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
       this.priceTarget.innerText = `${(
-        diffInDays * pricePerDay
-      ).toLocaleString()}`;
+        diffInDays * (pricePerDay * 0.9)).toFixed(2)}`;
     }
   }
 }

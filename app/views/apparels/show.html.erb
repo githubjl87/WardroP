@@ -30,11 +30,11 @@
           <h4 class="card-title"><%= @apparel.name.upcase %></h4>
           <p class="card-text"><strong>Size:</strong> <%= @apparel.size.upcase %></p>
           <p class="card-text"><strong>Category:</strong> <%= @apparel.category.upcase %></p>
-          <p class="card-text"><strong>Price:</strong> $<%= sprintf('%.2f', (@apparel.price)) %></p>
-          <p class="card-was"><strong>Was:</strong>$<%= sprintf('%.2f', (@apparel.price)) %></p>
-          <p class="card-rrp"><strong>RRP:</strong> $<%= @apparel.price * 5 %></p>
           <p class="card-text"><strong>Overview: </strong><%= @apparel.overview.split.map(&:capitalize).join(' ') %></p>
-          <p class="card-text"><strong>Total:</strong> $<span data-rental-price-target='price' data-price="<%= @apparel.price %>"><%= sprintf('%.2f', (@apparel.price)) %></span></p>
+          <p class="card-rrp"><strong>RRP:</strong> $<%= @apparel.price * 5 %></p>
+          <p class="card-was"><strong>Was:</strong>$<%= sprintf('%.2f', (@apparel.price)) %></p>
+          <p class="card-text"><strong>Price:</strong> $<%= sprintf('%.2f', (@apparel.price * 0.9)) %></p>
+          <p class="card-text"><strong>Total:</strong> $<span data-rental-price-target='price' data-price="<%= @apparel.price%>">0</span></p>
           <%= render "rentals/form" %>
         </div>
       </div>
