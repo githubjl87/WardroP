@@ -12,7 +12,7 @@
         <h6><strong>FROM: <%= User.find(rental.user_id).username.upcase %></strong></h6>
       </div>
       <div class="d-flex">
-        <% if rental.status.nil? %>
+        <% if rental.status == "pending" %>
           <%= simple_form_for rental do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
             <%= f.submit 'Accept', class: 'btn btn-info' %>
