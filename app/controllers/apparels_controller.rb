@@ -18,8 +18,9 @@ class ApparelsController < ApplicationController
 
   def create
     @apparel = Apparel.new(apparel_params)
+    @apparel.user = current_user
     if @apparel.save
-      redirect_to apparels_path
+      redirect_to owner_rentals_path
     else
       render :new, status: :unprocessable_entity
     end
