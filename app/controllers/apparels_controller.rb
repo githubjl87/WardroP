@@ -32,6 +32,6 @@ class ApparelsController < ApplicationController
   end
 
   def apparel_params
-    params.require(:apparel).permit(:name, :size, :category, :price, :overview)
+    params.require(:apparel).permit(:name, :size, :category, :price, :overview, :photo)
   end
 end
