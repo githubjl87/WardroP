@@ -186,4 +186,9 @@ Rental.create!(user_id: ritsuki.id, apparel_id: alvin_top.id, start_date: DateTi
 Rental.create!(user_id: james.id, apparel_id: gary_trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 Rental.create!(user_id: alvin.id, apparel_id: ritsuki_trousers.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
 
+Rental.create!(user_id: gary.id, apparel_id: james_dress.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: ritsuki.id, apparel_id: alvin_suit.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: james.id, apparel_id: gary_dress.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+Rental.create!(user_id: alvin.id, apparel_id: ritsuki_wsuit.id, start_date: DateTime.now - Random.rand(10..24), end_date: DateTime.now - Random.rand(1..9))
+
 puts "created #{User.count} users, #{Apparel.count} apparels and #{Rental.count} rentals"
