@@ -162,6 +162,17 @@ body {
   display: inline-block;
 }
 
+.card-rrp {
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+.card-was {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: red;
+}
+
 .card-price:first-of-type {
   text-decoration: line-through;
   color: var(--option4);
