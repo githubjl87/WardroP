@@ -1,14 +1,14 @@
 .container-fluid:hover {
   background-color: white;
   opacity: 0.8;
-  transition: background 0.5s ease;
+  transition: background 0.8s ease;
   width: 100%;
-  height: 60px;
+  height: 50px;
 }
 
 .navbar-lewagon {
   justify-content: space-between;
-  height: 100px;
+  height: 110px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,12 +17,19 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 170px;
-  margin: 0px 50px;
+  margin-left: 50px;
+  margin-top: 17px;
 }
 
 .nav-item {
   font-weight: 600;
   margin: 0 15px;
+}
+
+.nav-item .nav-link:hover {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #81C3D7;
 }
 
 .search-form-control {

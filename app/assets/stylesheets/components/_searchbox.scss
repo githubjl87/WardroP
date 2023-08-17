@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+
+:root {
+  --option1: #2F6690;
+  --option2: #3A7CA5;
+  --option3: #D9DCD6;
+  --option4: #16425B;
+  --option5: #81C3D7;
+  --shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 470px;
+  border-radius: 50px;
+  background-color: white;
+  margin-bottom: 250px;
+  margin-left: 100px;
+  opacity: 0.5;
+}
+
+.search-bar:hover {
+  display: flex;
+  align-items: center;
+  width: 470px;
+  border-radius: 50px;
+  background-color: white;
+  margin-bottom: 250px;
+  margin-left: 100px;
+  opacity: 0.95;
+}
+
+.dropdown-full {
+  position: relative;
+  width: 280px;
+  border-radius: 50px;
+  border: 1px solid white;
+  background-color: var(--option4);
+  cursor: pointer;
+}
+
+.dropdown-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.dropdown-list-item {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 1rem 0 1rem 1.5rem;
+  cursor: pointer;
+  transition: margin-left 0.2s ease, color 0.2s ease;
+}
+
+.drop-list-item:hover {
+  margin-left: 0.5rem;
+  color: var(--option4);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--option4);
+  position: relative;
+  margin-left: 35px;
+}
+
+.search-box input {
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--option4);
+  border: 0;
+  outline: 0;
+  flex-grow: 1
+}
+
+.search-box i {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.search-box input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--option4);
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 20px;
+  color: var(--option4);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}

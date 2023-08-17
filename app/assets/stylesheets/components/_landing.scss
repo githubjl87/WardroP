@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Kavivanar&family=Solitreo&family=Tapestry&family=Tillana:wght@600&display=swap');
 
+:root {
+  --option1: #2F6690;
+  --option2: #3A7CA5;
+  --option3: #D9DCD6;
+  --option4: #16425B;
+  --option5: #81C3D7;
+}
+
 .landing {
   background-size: cover;
   background-position: center;
-  height: 1000px;
+  height: 800px;
   width: 1500px;
   padding: 10px 0px;
   margin: 0 auto;
@@ -34,12 +42,15 @@
 
 #typed-text {
   display: flex;
-  margin: 100px 200px;
+  align-items: center;
+  height: 300px;
+  margin-left: 100px;
+  margin-top: 50px;
 }
 
-.fixed-search-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+.discount-bar {
+  background-color: var(--option4);
+  color: white;
+  padding: 5px 0;
+  font-family: sans-serif;
 }

@@ -135,8 +135,15 @@ body {
 
 .card-info {
   background: white;
-  padding: 2rem;
+  padding: 1rem 1.3rem;
 }
+
+.card-subinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 .card-info-top {
   display: flex;
@@ -155,6 +162,10 @@ body {
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 12px 5px;
+  background-color: var(--option5);
 }
 
 .card-price {
@@ -164,7 +175,7 @@ body {
 
 .card-rrp {
   font-size: 12px;
-  text-decoration: line-through;
+  color: gray;
 }
 
 .card-was {
@@ -207,4 +218,22 @@ body {
   z-index: 1;
   letter-spacing: 3px;
   cursor: pointer;
+}
+
+.like-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: var(--option4);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.6s ease;
+}
+
+;
+
+.like-button:hover {
+  transform: scale(1.4);
+  color: red
 }
