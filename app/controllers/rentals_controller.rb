@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @rental.apparel = @apparel
     @rental.user = current_user
     if @rental.save
-      redirect_to owner_rentals_path
+      redirect_to rentals_path
     else
       render "apparels/show", status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
 
   def update
     if @rental.update(rental_params)
-      redirect_to rentals_path
+      redirect_to owner_rentals_path
     else
       render :edit, status: :unprocessable_entity
     end

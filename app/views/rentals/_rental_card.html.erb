@@ -1,5 +1,5 @@
 <div class="col-4">
-  <div class="card-product">
+  <div class="card-product <%=rental.status%>">
     <%= cl_image_tag rental.apparel.photo.key, class: 'img' if rental.apparel.photo.key? %>
     <div class="card-product-infos">
       <%= link_to rental.apparel.name.capitalize, apparel_path(rental.apparel), class: 'text-decoration-none' %>
@@ -8,9 +8,18 @@
       <%# <div class="d-flex justify-content-between"> %>
       <p>Rental Start: <strong><%= rental.start_date %></strong></p>
       <p>Rental End: <strong><%= rental.end_date %></strong></p>
-      <div class="mt-3 <%=rental.status%>">
-        <h6><strong><%= rental.status.nil? ? "TO" : "#{rental.status.upcase} BY" %>: <%= @requester.username.upcase %></strong></h6>
+      <div class="mt-3">
+        <h6><strong>Supplier: <%= @requester.username.upcase %></strong></h6>
       </div>
+      <% if rental.status == "accepted" %>
+        <%= simple_form_for rental do |f| %>
+          <%= f.input :status, as: :hidden, input_html: { value: 'delivered'} %>
+          <%= f.submit 'Delivered?', class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+        <!-- Display Status-->
+        <p class='booking-tag'><%= rental.status.upcase %></p>
+      <% end %>
       <%# </div> %>
     </div>
   </div>
