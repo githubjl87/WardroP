@@ -11,7 +11,7 @@
       <h4><strong>REQUESTED BY <%= User.find(rental.user_id).username.upcase %></strong></h4>
       <% rental.status =  params[:status] if  params[:status].present? %>
       <h4><strong><%= rental.status.nil? ? "REQUESTED" : rental.status.upcase %></strong></h4>
-      <%= link_to 'Approve', edit_rental_path(rental) %>
+      <%= link_to 'Respond', edit_rental_path(rental) %>
       <%# </div> %>
     </div>
   </div>
