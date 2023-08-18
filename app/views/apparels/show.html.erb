@@ -16,7 +16,7 @@
           </div>
           <p class="card-text"><strong>Category:</strong> <%= @apparel.category.upcase %></p>
           <p class="card-text"><strong>Overview: </strong><%= @apparel.overview.split.map(&:capitalize).join(' ') %></p>
-          <p class="card-rrp"><strong>RRP:</strong> $<%= @apparel.price * 5 %></p>
+          <p class="card-rrp"><strong>RRP:</strong> $<%= @apparel.price * 100 %></p>
           <p class="card-was"><strong>Was:</strong>$<%= sprintf('%.2f', (@apparel.price)) %></p>
           <p class="card-text mb-5"><strong>Price:</strong> $<%= sprintf('%.2f', (@apparel.price * 0.9)) %></p>
           <%= render "rentals/form" %>

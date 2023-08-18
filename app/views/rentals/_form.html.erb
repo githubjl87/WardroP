@@ -1,19 +1,18 @@
 <div data-controller="rental-price" class=“card”>
   <h6>Please confirm your rental period:</h6>
-
   <%= simple_form_for [@apparel, @rental]  do |f| %>
-  <%= f.input :start_date,
+    <%= f.input :start_date,
           as: :string,
-          label: "From:",
-          input_html: { data: { controller: "datepicker", rental_price_target: 'startDate', action: 'change->rental-price#update' } } %>
-  <%= f.input :end_date,
+          label: false,
+          input_html: { data: { controller: "datepicker", rental_price_target: 'startDate', action: 'change->rental-price#update' }, placeholder: 'From:'} %>
+    <%= f.input :end_date,
         as: :string,
-        label: "To:",
-        input_html: { data: { controller: "datepicker", rental_price_target: 'endDate', action: 'change->rental-price#update' } } %>
-        <p class="card-total text-end"><strong>Total:</strong> $<span data-rental-price-target='price' data-price="<%= @apparel.price%>">0</span></p>
-        <div class="d-flex justify-content-between mt-4 mb-3">
-          <%= link_to "Go back", apparels_path, class: "btn btn-outline-info btn-width"%>
-          <%= f.submit "Rent now", class: "btn btn-info btn-width" %>
-        </div>
+        label: false,
+        input_html: { data: { controller: "datepicker", rental_price_target: 'endDate', action: 'change->rental-price#update' }, placeholder: 'To:'} %>
+    <p class="card-total text-end"><strong>Total:</strong> $<span data-rental-price-target='price' data-price="<%= @apparel.price%>">0</span></p>
+    <div class="d-flex justify-content-between mt-4 mb-3">
+      <%= link_to "Go back", apparels_path, class: "btn btn-outline-info btn-width"%>
+      <%= f.submit "Rent now", class: "btn btn-info btn-width" %>
+    </div>
   <% end %>
 </div>
