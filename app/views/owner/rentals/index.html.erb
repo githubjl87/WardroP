@@ -1,27 +1,42 @@
 <%= render "owner_landing" %>
 <%# Renters' listings %>
-<div class="container mb-5">
-  <div class="text-center mt-3 lg-title">
-    <h1>MY LISTING</h1>
-  </div>
-  <div class="row">
-    <% @apparels.each do |apparel| %>
-      <% if current_user.id == apparel.user_id %>
-        <%= render 'owner_card', apparel: apparel %>
-        <%# <%= render 'apparels/apparel_card', apparel: apparel%>
-      <% end %>
-    <% end %>
-  </div>
-  <%# Renters' confirmation for requests %>
-  <div class="text-center mt-3 lg-title">
-    <h1>RENTAL REQUESTS TO <%= current_user.username.upcase %></h1>
-  </div>
-  <div class="row">
-    <% @rentals.sort_by{ |rental| rental.start_date }.each do |rental| %>
-      <% apparel = Apparel.find(rental.apparel_id) %>
-      <% if current_user.id == apparel.user_id %>
-        <%= render 'rentals/rentee_card', rental: rental%>
-      <% end %>
-    <% end %>
+<div class="d-flex justify-content-center align-items-center">
+  <div>
+    <ul class="nav tabs-underlined" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <span class="nav-link tab-underlined active" id="listings-tab" data-bs-toggle="tab" data-bs-target="#listings-tab-pane" role="tab" aria-controls="listings-tab-pane" aria-selected="true">MY LISTINGS</span>
+      </li>
+      <li class="nav-item" role="presentation">
+        <span class="nav-link tab-underlined" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" role="tab" aria-controls="requests-tab-pane" aria-selected="false">CUSTOMER REQUESTS</span>
+      </li>
+    </ul>
   </div>
 </div>
+<%# ---------------------------------- %>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade py-3 show active" id="listings-tab-pane" role="tabpanel" aria-labelledby="listings-tab" tabindex="0">
+    <div class="container mb-5">
+      <div class="row">
+        <% @apparels.each do |apparel| %>
+          <% if current_user.id == apparel.user_id %>
+            <%= render 'owner_card', apparel: apparel %>
+            <%# <%= render 'apparels/apparel_card', apparel: apparel%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+    <div class="container mb-5">
+      <div class="row">
+        <% @rentals.sort_by{ |rental| rental.start_date }.each do |rental| %>
+          <% apparel = Apparel.find(rental.apparel_id) %>
+          <% if current_user.id == apparel.user_id %>
+            <%= render 'rentals/rentee_card', rental: rental%>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%# ---------------------- %>
