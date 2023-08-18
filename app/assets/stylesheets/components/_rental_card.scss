@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto';
+}
+
 .card-product {
   overflow: hidden;
   height: 280px;
@@ -5,7 +9,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  margin: 8px;
+  margin: 4px;
   width: 402px;
 }
 
@@ -21,16 +25,10 @@
   background: var(--option4);
 }
 
-.card-product h2 {
+.card-product {
   font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
+  line-height: 1.1;
+  opacity: .9;
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -42,20 +40,40 @@
 
 .accepted {
   background-color: lightgreen;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .rejected {
   background-color: #E76161;
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 .pending {
   background-color: lightyellow;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .delivered {
   background-color: lightblue;
-  opacity: 0.7;
+  opacity: 0.85;
+}
+
+#booking-tag {
+  font-size: 12px;
+  border: 1px solid white;
+  background-color: var(--option4);
+  color: white;
+  width: 80px;
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 0px;
+}
+
+.rental-product-name {
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  display: flex;
+  background-color: var(--option4);
+  padding: 5px 5px;
+  color: white;
 }
