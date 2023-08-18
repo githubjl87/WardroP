@@ -1,23 +1,23 @@
 <div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path('landing_page1.jpg') %>'); height: 200px; background-position: center 60%;">
   <%= render "shared/navbar" %>
 </div>
-<div class="container my-2 d-flex justify-content-center align-items-center">
+<div class="container my-5  d-flex justify-content-center align-items-center">
   <div class="row m-0 ">
-    <div class="col-md-6 m-0 ">
+    <div class="col-md-6 m-0 mt-2">
       <%= cl_image_tag @apparel.photo.key, class: 'img img-fluid custom-img' if @apparel.photo.key? %>
     </div>
     <div class="col-md-6  m-0">
       <div class="card rent-card" style="width: 400px">
         <div data-controller="rental-price" class="card-body w">
-          <h3 class="card-title text-center mb-5"><%= @apparel.name.upcase %></h4>
+          <h3 class="card-name text-center mb-5"><%= @apparel.name.upcase %></h4>
           <div class="d-flex justify-content-between align-items-center " >
           <p class="card-text"><strong>Size:</strong> <%= @apparel.size.upcase %></p>
           <a type="button" class="mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Size guide</a>
           </div>
           <p class="card-text"><strong>Category:</strong> <%= @apparel.category.upcase %></p>
           <p class="card-text"><strong>Overview: </strong><%= @apparel.overview.split.map(&:capitalize).join(' ') %></p>
-          <p class="card-rrp"><strong>RRP:</strong> $<%= @apparel.price * 100 %></p>
-          <p class="card-was"><strong>Was:</strong>$<%= sprintf('%.2f', (@apparel.price)) %></p>
+          <p class="card-rrp"><strong>Reference Retail Price:</strong> $<%= @apparel.price * 100 %></p>
+          <p class="card-was"><strong>Original: </strong>$<%= sprintf('%.2f', (@apparel.price)) %></p>
           <p class="card-text mb-5"><strong>Price:</strong> $<%= sprintf('%.2f', (@apparel.price * 0.9)) %></p>
           <%= render "rentals/form" %>
         </div>
