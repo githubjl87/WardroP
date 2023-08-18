@@ -136,6 +136,7 @@ body {
 .card-info {
   background: white;
   padding: 1rem 1.3rem;
+
 }
 
 .card-subinfo {
@@ -171,17 +172,20 @@ body {
 .card-price {
   padding-right: 0.6rem;
   display: inline-block;
+  padding-left: 5px;
 }
 
 .card-rrp {
   font-size: 12px;
   color: gray;
+  padding-left: 5px;
 }
 
 .card-was {
   font-size: 12px;
   text-decoration: line-through;
   color: red;
+  padding-left: 5px;
 }
 
 .card-price:first-of-type {
