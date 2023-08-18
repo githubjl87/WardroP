@@ -1,12 +1,12 @@
 .card-product {
   overflow: hidden;
-  height: 300px;
+  height: 280px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   margin: 8px;
-  width: 420px;
+  width: 402px;
 }
 
 .card-product img {
@@ -48,4 +48,14 @@
 .rejected {
   background-color: #E76161;
   opacity: 0.6;
+}
+
+.pending {
+  background-color: lightyellow;
+  opacity: 0.7;
+}
+
+.delivered {
+  background-color: lightblue;
+  opacity: 0.7;
 }

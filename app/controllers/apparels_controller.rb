@@ -1,5 +1,5 @@
 class ApparelsController < ApplicationController
-  before_action :set_apparel, only: :show
+  before_action :set_apparel, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -16,11 +16,31 @@ class ApparelsController < ApplicationController
     @apparel = Apparel.new
   end
 
+  def edit
+  end
+
+  def update
+    if @apparel.update(apparel_params)
+      redirect_to owner_rentals_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def create
     @apparel = Apparel.new(apparel_params)
     @apparel.user = current_user
     if @apparel.save
       redirect_to owner_rentals_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @apparel.destroy
+    if @apparel.destroy
+      redirect_to owner_rentals_path(@apparel)
     else
       render :new, status: :unprocessable_entity
     end
