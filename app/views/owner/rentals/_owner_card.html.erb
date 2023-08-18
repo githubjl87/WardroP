@@ -6,7 +6,6 @@
     <div class="card-btns">
       <button type="button" class="btn-cart text-black"> share
       </button>
-      <button type="button" class="btn-rent"><%= link_to "Delete", apparel_path(apparel), class: 'text-decoration-none text-black', data: { turbo_method: :delete, turbo_confirm: "Delete #{apparel.name.split.map(&:capitalize).join(' ')}?" } %></button>
     </div>
     <div class="card-info">
       <h2 class="sm-title"><%= apparel.category %></h2>
@@ -19,6 +18,7 @@
       </div>
       <p class="card-name"><%= apparel.name %></p>
       <p class="card-price">$<%= sprintf('%.2f', (apparel.price)) %></p>
+      <button type="button" class="btn-primary"><%= link_to "Delete", apparel_path(apparel), class: 'text-decoration-none text-black', data: { turbo_method: :delete, turbo_confirm: "Delete #{apparel.name.split.map(&:capitalize).join(' ')}?" } %></button>
     </div>
   </div>
 </div>
