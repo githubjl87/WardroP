@@ -38,12 +38,12 @@ class ApparelsController < ApplicationController
   end
 
   def destroy
-    @apparel.destroy
-    if @apparel.destroy
-      redirect_to owner_rentals_path(@apparel)
+    unless @apparel.rentals.any?
+      @apparel.destroy
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = "Cannot delete, item is currently being rented"
     end
+    redirect_to owner_rentals_path
   end
 
   private
