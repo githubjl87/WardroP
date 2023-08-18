@@ -3,6 +3,9 @@ class Apparel < ApplicationRecord
   has_many :rentals
   has_one_attached :photo
 
+  SIZES = %w[xxs xs s m l xl xxl]
+  CATEGORIES = ["business", "party", "holiday", "wedding", "casual", "other"]
+
   validates :name, presence: true
   validates :size, presence: true, inclusion: { in: %w[xxs xs s m l xl xxl] }
   validates :category, presence: true, inclusion: { in: ["business", "party", "holiday", "wedding", "casual", "other"] }
