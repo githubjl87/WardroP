@@ -1,13 +1,62 @@
-<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(<%= asset_path('landing_page4.jpg') %>); height: 200px;">
+<%# landing page banner %>
+<div class="landing w-100" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2)), url(<%= asset_path('landing_page4.jpg') %>);">
+  <%# navbar %>
   <%= render "shared/navbar" %>
+  <%# typing text %>
+  <div id="typed-text">
+    <script>
+      typed = new Typed('#typed-text', {
+        strings: [
+          "<h1><span class='un'>UN</span> LOAD</h1>",
+          "<h1><span class='un'>UN</span> LOAD</h1>",
+          "<h1><span class='un'>UN</span> LEASH</h1>",
+          "<h1><span class='un'>UN</span> VEIL</h1>"
+        ],
+        typeSpeed: 200,<%# navbar %>
+        backSpeed: 25,
+        startDelay: 100,
+        loop: true,
+        showCursor: false,
+        contentType: 'html'
+      });
+    </script>
+  </div>
+  <%# search bar start%>
+  <div class="search-bar">
+    <%# dropdown starts %>
+    <%# <div class="dropdown-full">
+      <div class="dropdown-text">
+        <span>All</span>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <%# <ul class="dropdown-list">
+        <li class="dropdown-list-item">All</li>
+        <li class="dropdown-list-item">Business</li>
+        <li class="dropdown-list-item">Party</li>
+        <li class="dropdown-list-item">Holiday</li>
+        <li class="dropdown-list-item">Wedding</li>
+        <li class="dropdown-list-item">Casual</li>
+        <li class="dropdown-list-item">Others</li>
+      </ul> %>
+    <%# </div> %>
+    <%# dropdown ends %>
+    <%# searchbox input starts %>
+    <div class="search-box">
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <input type="text" name="search[query]" id="search_query" placeholder="Search..." />
+        <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+      <% end %>
+    </div>
+    <%# searchbox input ends %>
+  </div>
 </div>
-</div>
-<div class="container">
+<div class="container mb-5">
   <h1 class="text-center mt-3 lg-title"> NEW ITEMS </h1>
+  <%# All List Items %>
   <div class="cards">
-    <div class="container">
+    <div class="container mb-5">
       <div class="row">
-        <% @apparels.each do |apparel| %>
+        <% @apparels.shuffle.take(8).each do |apparel| %>
           <div class="col-md-3">
             <div class="card">
               <div class="card-img">
@@ -19,24 +68,79 @@
                 <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
               </div>
               <div class="card-info">
-                <h2 class="sm-title"><%= apparel.category %></h2>
-                <div class="rating my-3">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="far fa-star"></i></span>
+                <div class="card-subinfo">
+                  <h2 class="sm-title"><%= apparel.category %></h2>
+                  <div class="rating mb-2">
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="fas fa-star"></i></span>
+                    <span><i class="far fa-star"></i></span>
+                  </div>
                 </div>
                 <p class="card-name"><%= apparel.name %></p>
                 <p class="card-price"><strong>Rent from: </strong>$<%=  sprintf('%.2f', (apparel.price * 0.9)) %></p>
-                <p class="card-was"><strong>Was:</strong>$<%= sprintf('%.2f', (apparel.price)) %></p>
-                <p class="card-rrp"><strong>RRP:</strong> $<%= apparel.price * 5 %></p>
+                <p class="card-was"><strong>Original:</strong>$<%= sprintf('%.2f', (apparel.price)) %></p>
+                <p class="card-rrp"><strong>Refernce Retail Price:</strong> $<%= apparel.price * 5 %></p>
               </div>
               <div class="off-info">
                 <h2 class="sm-title">10% off</h2>
               </div>
+              <div class="like-button">
+                <i class="fa-solid fa-heart"></i>
+              </div>
             </div>
           </div>
         <% end %>
-      </div>
-    </div>
+        <div class="container">
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="landing w-100 mt-3 d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(<%= asset_path('landing_page2.jpg') %>);">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="landing w-100 mt-3 d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(<%= asset_path('landing_page3.jpg') %>);">
+              </div>
+            </div>
+          </div>
+          <div class="container mb-5">
+            <h1 class="text-center mt-3 lg-title"> OUR RECOMMENDATIONS </h1>
+            <%# All List Items %>
+            <div class="cards">
+              <div class="container mb-5">
+                <div class="row mb-5">
+                  <% @apparels.shuffle.take(8).each do |apparel| %>
+                    <div class="col-md-3">
+                      <div class="card">
+                        <div class="card-img">
+                          <%= cl_image_tag apparel.photo.key, class: 'img' if apparel.photo.key? %>
+                        </div>
+                        <div class="card-btns">
+                          <button type="button" class="btn-cart text-black"> add to cart +
+                          </button>
+                          <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
+                        </div>
+                        <div class="card-info">
+                          <h2 class="sm-title"><%= apparel.category %></h2>
+                          <div class="rating my-3">
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="fas fa-star"></i></span>
+                            <span><i class="far fa-star"></i></span>
+                          </div>
+                          <p class="card-name"><%= apparel.name %></p>
+                          <p class="card-price"><strong>Rent from: </strong>$<%=  sprintf('%.2f', (apparel.price * 0.9)) %></p>
+                          <p class="card-was"><strong>Original:</strong>$<%= sprintf('%.2f', (apparel.price)) %></p>
+                          <p class="card-rrp"><strong>Reference Retail Price:</strong> $<%= apparel.price * 5 %></p>
+                        </div>
+                        <div class="off-info">
+                          <h2 class="sm-title">10% off</h2>
+                        </div>
+                        <div class="like-button">
+                          <i class="fa-solid fa-heart"></i>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
