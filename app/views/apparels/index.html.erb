@@ -56,7 +56,13 @@
   <div class="cards">
     <div class="container mb-5">
       <div class="row">
-        <% @apparels.shuffle.take(8).each do |apparel| %>
+        <% @sorted_apparels = [] %>
+        <% @apparels.each do |apparel| %>
+          <% if current_user.id != apparel.user_id %>
+            <% @sorted_apparels << apparel  %>
+          <% end %>
+        <% end %>
+        <% @sorted_apparels.shuffle.take(8).each do |apparel| %>
           <div class="col-md-3">
             <div class="card">
               <div class="card-img">
@@ -109,38 +115,46 @@
             <div class="cards">
               <div class="container mb-5">
                 <div class="row mb-5">
-                  <% @apparels.shuffle.take(8).each do |apparel| %>
-                    <div class="col-md-3">
-                      <div class="card">
-                        <div class="card-img">
-                          <%= cl_image_tag apparel.photo.key, class: 'img' if apparel.photo.key? %>
-                        </div>
-                        <div class="card-btns">
-                          <button type="button" class="btn-cart text-black"> add to cart +
-                          </button>
-                          <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
-                        </div>
-                        <div class="card-info">
-                          <h2 class="sm-title"><%= apparel.category %></h2>
-                          <div class="rating my-3">
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="fas fa-star"></i></span>
-                            <span><i class="far fa-star"></i></span>
+                  <% @sorted_apparels2 = [] %>
+                  <% @apparels.each do |apparel| %>
+                    <% if current_user.id != apparel.user_id %>
+                      <% @sorted_apparels2 << apparel  %>
+                    <% end %>
+                  <% end %>
+                  <% @sorted_apparels2.shuffle.take(8).each do |apparel| %>
+                    <% if current_user.id != apparel.user_id %>
+                      <div class="col-md-3">
+                        <div class="card">
+                          <div class="card-img">
+                            <%= cl_image_tag apparel.photo.key, class: 'img' if apparel.photo.key? %>
                           </div>
-                          <p class="card-name"><%= apparel.name %></p>
-                          <p class="card-price"><strong>Rent from: </strong>$<%=  sprintf('%.2f', (apparel.price * 0.9)) %></p>
-                          <p class="card-was"><strong>Original:</strong>$<%= sprintf('%.2f', (apparel.price)) %></p>
-                          <p class="card-rrp"><strong>Reference Retail Price:</strong> $<%= apparel.price * 5 %></p>
-                        </div>
-                        <div class="off-info">
-                          <h2 class="sm-title">10% off</h2>
-                        </div>
-                        <div class="like-button">
-                          <i class="fa-solid fa-heart"></i>
+                          <div class="card-btns">
+                            <button type="button" class="btn-cart text-black"> add to cart +
+                            </button>
+                            <button type="button" class="btn-rent"><%= link_to "rent now 🛒", apparel_path(apparel), class: 'text-decoration-none text-black' %></button>
+                          </div>
+                          <div class="card-info">
+                            <h2 class="sm-title"><%= apparel.category %></h2>
+                            <div class="rating my-3">
+                              <span><i class="fas fa-star"></i></span>
+                              <span><i class="fas fa-star"></i></span>
+                              <span><i class="fas fa-star"></i></span>
+                              <span><i class="fas fa-star"></i></span>
+                              <span><i class="far fa-star"></i></span>
+                            </div>
+                            <p class="card-name"><%= apparel.name %></p>
+                            <p class="card-price"><strong>Rent from: </strong>$<%=  sprintf('%.2f', (apparel.price * 0.9)) %></p>
+                            <p class="card-was"><strong>Original:</strong>$<%= sprintf('%.2f', (apparel.price)) %></p>
+                            <p class="card-rrp"><strong>Reference Retail Price:</strong> $<%= apparel.price * 5 %></p>
+                          </div>
+                          <div class="off-info">
+                            <h2 class="sm-title">10% off</h2>
+                          </div>
+                          <div class="like-button">
+                            <i class="fa-solid fa-heart"></i>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                   <% end %>
                 </div>
