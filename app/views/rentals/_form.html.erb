@@ -1,14 +1,16 @@
 <div data-controller="rental-price" class=“card”>
   <h6 class= "mb-3">Please confirm your rental period:</h6>
   <%= simple_form_for [@apparel, @rental]  do |f| %>
+  <div data-controller="datepicker">
     <%= f.input :start_date,
           as: :string,
           label: false,
-          input_html: { data: { controller: "datepicker", rental_price_target: 'startDate', action: 'change->rental-price#update' }, placeholder: 'From:'} %>
+          input_html: { data: { datepicker_target: "datePickerStart", rental_price_target: 'startDate', action: 'change->rental-price#update' }, placeholder: 'From:'} %>
     <%= f.input :end_date,
         as: :string,
         label: false,
-        input_html: { data: { controller: "datepicker", rental_price_target: 'endDate', action: 'change->rental-price#update' }, placeholder: 'To:'} %>
+        input_html: { data: { datepicker_target: "datePickerEnd", rental_price_target: 'endDate', action: 'change->rental-price#update' }, placeholder: 'To:'} %>
+  </div>
     <p class="card-total text-end"><strong>Total:</strong> $<span data-rental-price-target='price' data-price="<%= @apparel.price%>">0</span></p>
     <div class="d-flex justify-content-between mt-4 mb-3">
       <%= link_to "Go back", apparels_path, class: "btn btn-outline-info btn-width"%>
